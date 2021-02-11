@@ -5,16 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>&#x1F680;MarsRovers</title>
+		<title>&#x1F680;MarsRovers</title>
+    <style>
+			main {
+				padding: 15px;
+			}
+			#root{
+				margin-top: 20px;
+				height: 300px;
+			}
+			h1 {
+				text-align: center;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+				#imageOfDay {
+					display: flex;
+					max-height: 100%;
+				}
+				.title{
+					text-align: center;
+					margin: 0;
+				}
+				.image{
+					width: 50%;
+					max-height: 100%;
+				}
+				.apodPhoto {
+					width: 90%;
+					height: 90%;
+					padding: 10px;
+				}
+				.description{
+					width: 50%;
+					font-size: 12px;
+					display: flex;
+					align-items: center;
+				}
+        a:hover {
+            background-color: grey;
+            color: burlywood;
+        }
+
+        a:active {
+            background-color: royalblue;
+            color: peru;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid;
+        }
+				.rover{
+					width: 80%;
+				}
+				.card{
+					display: flex;
+					align-items: center;
+					width: 60%;
+					margin-top: 10px;
+				}
+				.card-body{
+					width: 100%;
+					padding: 5px;
+				}
+				#image-gallery img {
+				max-width: 200px; 
+				margin: 10px;
+				float: left;
+				-webkit-box-shadow: -4px 10px 17px -4px rgba(64,64,64,1);
+				-moz-box-shadow: -4px 10px 17px -4px rgba(64,64,64,1);
+				box-shadow: -4px 10px 17px -4px rgba(64,64,64,1);
+				}
+    </style>
 </head>
 
 <body>
     <main>
-        <div id="root">
-            <h1>&#x1F680; Loading...</h1>
-        </div>
+			<h1>
+				<img src="nasaLogo.png" height="10%" width="10%"> 
+				Mars Rovers Dashboard
+			</h1>
+			<div id="root">
+				<h1>&#x1F680; Loading...</h1>
+			</div>
+			<!-- Rover menu -->
+			<div class="row">
+				<div class="col-md-12 ">
+						<nav class="font-weight-bold">
+							<div class="nav nav-tabs nav-fill" role="tablist">
+								<a class="nav-item nav-link " data-toggle="tab" href="#" role="tab" aria-controls="nav-home"
+										aria-selected="true" onclick="fetchGallery('curiosity')">Curiosity</a>
+								<a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" aria-controls="nav-profile"
+										aria-selected="false" onclick="fetchGallery('opportunity')">Opportunity</a>
+								<a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact"
+										aria-selected="false" onclick="fetchGallery('spirit')">Spirit </a>
+							</div>
+						</nav>
+				</div>
+		</div>
+		<div class="card" id="roverInfo"></div>
+		</div>
+		<div id="image-gallery"></div>
     </main>
 </body>
-<script src="/client.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.2/immutable.min.js" integrity="sha512-myCdDiGJRYrvRb/VuJ67ljifYTJdc1jdEvL4c4ftX9o3N6EAnmD83c/7l2/91RCINZ7c8w21tiXDT7RDFjdc3g==" crossorigin="anonymous"></script>
+<script src="./client.js"></script>
 </html>
