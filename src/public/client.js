@@ -26,7 +26,7 @@ const App = () => {
 window.addEventListener('load', () => {
 	render(root, store)
 })
-// Example of a pure function that renders infomation requested from the backend
+// Pure function that renders infomation requested from the backend
 const ImageOfTheDay = (apod) => {
 	console.log("apod: ", apod)
     // If image does not already exist, or it is not from today -- request it again
@@ -68,7 +68,7 @@ const getImageOfTheDay = () => {
 			})
 			.catch(err)
 }
-
+//Pure function - to make the server request
 async function fetchGallery(roverName) {
 	roverInfoDetails(roverName);
 	const res = await fetch(`/nasaAPI`, {
@@ -82,7 +82,7 @@ async function fetchGallery(roverName) {
 	}
 	return RoverData;
 }
-
+// High-order function- process rover received from serve
 function processRoverGallery(responseData) {
 	let rover = responseData;
 	const toShow =  rover.data.photos.slice(0, 50);
@@ -112,7 +112,7 @@ function roverInfo(info) {
 	wrapInfo.appendChild(newDiv)
 
 }
-
+// High-order function- process rover details and create html
 function roverInfoDetails(roverName) {
 	fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${roverName}?api_key=mbhLMB38eAG1VCORnGfymBsxlHnridCeGhOryd4N`)
 	.then(res => res.json())
