@@ -29,7 +29,7 @@ app.get('/nasaAPI', async (req, res) => {
     try {
         let roverName = req.get('roverName');
         console.log("API called in for:", roverName);
-        const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?sol=100&api_key=${process.env.API_KEY}`
+        const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?sol=100&api_key=${api_key}`
         let data = await fetch(url)
             .then(res => res.json())
         res.send({ data });

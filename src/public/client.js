@@ -69,7 +69,7 @@ const getImageOfTheDay = (state) => {
 
 async function fetchGallery(roverName) {
 	roverInfoDetails(roverName);
-	const res = await fetch(`http://localhost:3000/nasaAPI`, {
+	const res = await fetch(`/nasaAPI`, {
 			headers: {
 					'roverName': roverName,
 			}
