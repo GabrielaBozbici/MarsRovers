@@ -17,9 +17,10 @@ const api_key = 'mbhLMB38eAG1VCORnGfymBsxlHnridCeGhOryd4N'
 app.get('/apod', async (req, res) => {
     try {
         console.log("API called image of day:");
-        let image = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}`)
+        let image = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${api_key}`)
             .then(res => res.json())
-        res.send({ image })
+            console.log('image din index: ', image)
+        res.send({...image});
     } catch (err) {
         console.log('error:', err);
     }
