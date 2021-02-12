@@ -9,7 +9,7 @@ const updateStore = (store, newState) => {
 	render(root, store)
 }
 
-const render = async (root, state) => {
+const render = async (root) => {
     root.innerHTML = App()
 }
 
@@ -28,14 +28,15 @@ window.addEventListener('load', () => {
 })
 // Example of a pure function that renders infomation requested from the backend
 const ImageOfTheDay = (apod) => {
+	console.log("apod: ", apod)
     // If image does not already exist, or it is not from today -- request it again
 		const today = new Date()
 		
     if (!apod || apod.date === today.getDate() ) {
-        getImageOfTheDay()
-    }
-    // check if the photo of the day is actually type video!
-    if (apod.media_type === "video") {
+				getImageOfTheDay();
+				return (``)
+    } else {
+			if (apod.media_type === "video") {
         return (`
             <div class="apod">
                 <p>See today's featured video <a href="${apod.url}">here</a></p>
@@ -43,17 +44,19 @@ const ImageOfTheDay = (apod) => {
                 <p>${apod.explanation}</p>
             </div>
         `)
-    } else {
-        return (`
-        <div class="image">
-        	<p class="title">Astronomy Picture of the Day: ${apod.title}</p>
-          <img src="${apod.url}" class="apodPhoto"/>
-        </div>
-				<div class="description">
-					<p>${apod.explanation}</p>
-				</div>  
-        `)
-    }
+			} else {
+					return (`
+					<div class="image">
+						<p class="title">Astronomy Picture of the Day: ${apod.title}</p>
+						<img src="${apod.url}" class="apodPhoto"/>
+					</div>
+					<div class="description">
+						<p>${apod.explanation}</p>
+					</div>  
+					`)
+			}
+		}
+
 }
 
 const getImageOfTheDay = () => {
